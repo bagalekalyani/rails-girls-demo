@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @movie.name %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
+
+<p>
+  <strong>Actors:</strong><br>
+  <ul>
+  <% @movie.actors.each do |actor| %>
+    <li><%= actor.fname + ' ' + actor.lname %></li>
+  <%end%>
+  </ul>
+</p>
+
+<p>
+  <%= image_tag(@movie.picture_url, :width => 200, :height => 200) if @movie.picture.present? %>
+</p>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
